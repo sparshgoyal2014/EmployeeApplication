@@ -24,17 +24,45 @@ namespace EmployeeApplication
 
             List<Employee> list = employeeLogic.GetEmployees();
 
+
+            Account account = new Account();
             foreach (Employee e in list)
             {
+                Console.WriteLine("-----------------------------------------------------------------------------------");
+
+                account.CalculateSalary(e);
+                account.showCompensation(e);
+                Console.WriteLine("-----------------------------------------------------------------------------------");
+
                 e.displayEmployeeDetails();
             }
 
 
-            Employee employee = new Manager(1000, "James", "Software Engineer", 400000);
+            Employee employee = new Manager(1000, "James", "Software Engineer", 400000, 20000, 15000);
+            Employee employee1 = new SalesManager(2000, "Chris", "Software Engineer", 400000, 7000, 15000, 5000);
+            Employee employee2 = new Engineer(3000, "Tim", "Software Engineer", 400000, 2500, 5, "In Progress");
 
-            Account account = new Account();
+
+
+            
+
+            Console.WriteLine("-----------------------------------------------------------------------------------");
             account.CalculateSalary(employee);
             account.showCompensation(employee);
+            Console.WriteLine("-----------------------------------------------------------------------------------");
+            
+            Console.WriteLine("-----------------------------------------------------------------------------------");
+            account.CalculateSalary(employee1);
+            account.showCompensation(employee1);
+            Console.WriteLine("-----------------------------------------------------------------------------------");
+
+            Console.WriteLine("-----------------------------------------------------------------------------------");
+            account.CalculateSalary(employee2);
+            account.showCompensation(employee2);
+            Console.WriteLine("-----------------------------------------------------------------------------------");
+
+
+
 
 
 
